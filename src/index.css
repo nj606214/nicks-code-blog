@@ -1,13 +1,300 @@
+/*boiler plate and set-up styles*/
+:root {
+  --color1: #140f0d;
+
+  --color2: #0e3858;
+
+  --color3: #0978b4;
+
+  --color4: #08c4ff;
+
+  --color5: #0ffff8;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*begin styling components*/
+
+/*nav Bar */
+.navBar {
+  height: 60px;
+  width: 100%;
+
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  background-color: var(--color2);
+}
+
+.navMainLogo {
+  margin-left: 30px;
+}
+
+.navButtons {
+  width: 50%;
+}
+
+.navButtons {
+  width: 50%;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.navButtons ul li {
+  list-style: none;
+}
+
+.navBar a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--color4);
+}
+
+.menuIcon {
+  margin-right: 30px;
+  margin-left: auto;
+  display: none;
+  width: 20px;
+}
+
+.menuIcon:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 560px) {
+  .navBar .menuIcon {
+    display: block;
+  }
+
+  .navButtons {
+    display: none;
+  }
+
+  #expanded {
+    margin-left: 50%;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color2);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    margin-top: 145px;
+  }
+
+  #expanded a {
+    margin: 5px;
+  }
+}
+
+/*main content*/
+
+.mainContent {
+  background-color: #0978b4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*about section */
+.about {
+  margin-top: 40px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  width: 100%;
+  background-color: var(--color3);
+  width: 100%;
+  justify-self: center;
+}
+
+.aboutBlurb {
+  padding: 20px;
+}
+
+/*blogPostForm */
+.postForm {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  background-color: var(--color2);
+  border-radius: 10px;
+  margin-top: 10px;
+  width: 80%;
+  max-width: 750px;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "flaire"
+    "title"
+    "post"
+    "buttons";
+  grid-gap: 5px;
+}
+
+.postFormHeader {
+  justify-self: center;
+}
+
+.flaireSelect {
+  font-family: "Montserrat", sans-serif;
+  justify-self: center;
+  width: 150px;
+  height: 35px;
+  text-align: center;
+}
+
+select:invalid {
+  color: grey;
+}
+
+.titleBox {
+  font-family: "Montserrat", sans-serif;
+  height: 40px;
+  margin: 10px;
+}
+
+.textBox {
+  font-family: "Montserrat", sans-serif;
+  height: 100px;
+  margin: 10px;
+  resize: vertical;
+}
+
+.fireIconContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fireIcon {
+  color: white;
+  width: 40px;
+  height: 40px;
+  transition: all 0.2s ease-in-out;
+}
+
+.fireIcon1.isLit {
+  background-color: #ffd000;
+}
+
+.fireIcon2.isLit {
+  background-color: rgb(255, 136, 0);
+}
+
+.fireIcon3.isLit {
+  background-color: hsl(22, 100%, 50%);
+}
+
+.fireIcon4.isLit {
+  background-color: rgb(255, 51, 0);
+}
+
+.fireIcon5.isLit {
+  background-color: rgb(187, 26, 4);
+}
+
+.isHeld {
+  transform: scale(1.1);
+}
+
+.blogPostFormButtonContainer {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.blogPostSubmit {
+  font-family: "Montserrat", sans-serif;
+  width: 35%;
+  margin: 5px;
+  height: 35px;
+}
+
+.blogPostCancel {
+  font-family: "Montserrat", sans-serif;
+  width: 35%;
+  margin: 5px;
+  height: 35px;
+}
+
+/*feed and feed components */
+
+.feed {
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feedPostContainer {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "title title"
+    "postText postText"
+    "postFlaire postDate";
+
+  width: 80%;
+  max-width: 750px;
+  margin-bottom: 10px;
+  padding: 10px;
+
+  border-radius: 10px;
+  background-color: var(--color4);
+}
+
+.feedPostTitle {
+  grid-area: title;
+
+  align-self: center;
+  justify-self: center;
+}
+
+.feedPostText {
+  grid-area: postText;
+}
+
+.feedPostDetails {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.feedPostFireIconContainer {
+  margin-right: 20px;
+  margin-left: auto;
+}
+
+.feedPostFireIcon {
+  width: 20px;
 }
