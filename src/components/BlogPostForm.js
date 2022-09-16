@@ -69,7 +69,7 @@ export default function BlogPostForm () {
     
     return (
         <form className="postForm">
-            <h1 className="postFormHeader">Create a blog post!</h1>        
+            <h1 className="postFormHeader">Create a blog post! yeah</h1>        
                 <select
                     required
                     className="flaireSelect" 
