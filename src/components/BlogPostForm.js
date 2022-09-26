@@ -1,6 +1,8 @@
 import React from 'react'
 import fireIconImage from '../images/fireIcon.png'
 import FireIcon from './FireIcon'
+import fireIcon1 from '../images/fireIcon1.png'
+import fireIcon2 from '../images/fireIcon2.png'
 
 export default function BlogPostForm () {
     const [formState, setFormState] = React.useState({ flaire: '', title: '', text: ''});
@@ -107,6 +109,7 @@ export default function BlogPostForm () {
                     <button className="blogPostSubmit" type="submit">SUBMIT</button>
                     <button className="blogPostCancel" type="submit">CANCEL</button>
                 </div>
+
         </form>
     )
 }
