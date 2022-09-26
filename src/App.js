@@ -16,7 +16,7 @@ function App() {
           <About />
           <BlogPostForm />
           <section id="feed" className="feed">
-            <h2>Feed yeah</h2>
+            <h2>Feed</h2>
 
             <FeedPost />
             <FeedPost />
