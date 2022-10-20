@@ -4,7 +4,7 @@ import FireIcon from './FireIcon'
 
 
 export default function BlogPostForm () {
-    const [formState, setFormState] = React.useState({ flaire: '', title: '', text: ''});
+    const [formState, setFormState] = React.useState({ flaire: '', title: '', text: '', fireLevel: ''});
     const [isHovered, setIsHovered] = React.useState();
     const [isLit, setIsLit] = React.useState();
 
@@ -33,7 +33,9 @@ export default function BlogPostForm () {
 
     function handleFireIconClick(e) {
         setIsLit(e.target.id);
+        setFormState((prevFormState) => ({...prevFormState, fireLevel: e.target.id}))
     }
+
 
     function handleFireIconClass(fireLevel) {
         const classNames = ['fireIcon']
@@ -44,10 +46,24 @@ export default function BlogPostForm () {
             if (isLit >= fireLevel) {
                 classNames.push('isLit')
             }
-            console.log(classNames)
         return classNames.join(' ');
         
     }
+
+    function submitForm(event) {
+        //event.preventDefault();
+        const data = formState;
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+        fetch('http://localhost:8000', options);
+    }
+
+
 
 
     const fireIconsArray = [];
@@ -62,11 +78,11 @@ export default function BlogPostForm () {
                 src={fireIconImage}
                 alt="fire icon"
                 id={i+1}
+                key={i+1}
             />
         )
     }
 
-    console.log(fireIconsArray);
     
     return (
         <form className="postForm">
@@ -105,7 +121,7 @@ export default function BlogPostForm () {
                     {fireIconsArray}
                 </div>  
                 <div className="blogPostFormButtonContainer">
-                    <button className="blogPostSubmit" type="submit">SUBMIT</button>
+                    <button className="blogPostSubmit" type="submit" onClick={submitForm}>SUBMIT</button>
                     <button className="blogPostCancel" type="submit">CANCEL</button>
                 </div>
 

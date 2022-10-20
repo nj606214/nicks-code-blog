@@ -1,19 +1,34 @@
 const express = require ('express')
 const dotenv = require('dotenv').config()
-const port = process.env.PORT
+const port = 8000 //process.env.PORT//
+const connectDB = require('./config/db')
+const cors = require("cors")
 const {errorHandler} = require('./middleware/errorMiddleware')
 
+
+//connect the database to the server//
+connectDB()
+
+
+//initialize the app as express object
 const app = express()
 
-//when a get request is sent to the /api/posts route, run the command//
+app.use(cors({
+    origin: "http://localhost:3000"
+}))
 
+
+//tell the app to accept incoming and outgoing req, res as json
 app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: false})) //?//
 
-app.use('/api/posts', require('./routes/postRoutes'))
-  
+//not sure what this does, i think its telling the route it should look for//
+app.use('/', require('./routes/postRoutes'))
+
+//make sure the app utulizes the error handler functions//
 app.use(errorHandler)
 
+//tell the app what port to listen on
 app.listen(port, () => console.log(`Server started on port ${port}`))
 
 console.log('Hello World') 
