@@ -37,7 +37,7 @@ export default function Feed() {
         return (
            <FeedPost 
                 title={blogPost.title}
-                text={blogPost.postText}
+                text={blogPost.text}
                 flaire={blogPost.flaire}
             />
         )

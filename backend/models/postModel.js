@@ -9,7 +9,7 @@ const postSchema = mongoose.Schema({
         type: String,
         required: [true, 'Please select a flaire']
     },
-    postText: {
+    text: {
         type: String,
         required: [true, 'Please add a body to your post']
     },

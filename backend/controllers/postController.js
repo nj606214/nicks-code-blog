@@ -10,7 +10,7 @@ const setPost = asyncHandler(async (req, res) => {
     const post = await Post.create({
         title: req.body.title,
         flaire: req.body.flaire,
-        postText: req.body.text,
+        text: req.body.text,
         fireLevel: req.body.fireLevel,
     })
 

@@ -8,21 +8,18 @@ export default function BlogPostForm () {
     const [isHovered, setIsHovered] = React.useState();
     const [isLit, setIsLit] = React.useState();
 
-    function changeFlaire(event) {
-        const selectedFlaire = event.target.value;
-        setFormState( {...formState, flaire: selectedFlaire });
+    /*need to start implementing the validation states,
+    /*will need an errorState object with a specified error for each field*/
+    
+
+
+    /*handleChange for input fields*/
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setFormState({...formState, [name]: value})
     }
 
-    function changeTitle(event) {
-        const title = event.target.value;
-        setFormState( {...formState, title: title });
-    }
-
-    function changeText(event) {
-        const text = event.target.value;
-        setFormState( {...formState, text: text });
-    }
-
+    /*functions for fire icon handling*/
     function handleMouseOver(e) {
         setIsHovered(e.target.id);
     }
@@ -50,21 +47,7 @@ export default function BlogPostForm () {
         
     }
 
-    function submitForm(event) {
-        //event.preventDefault();
-        const data = formState;
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        }
-        fetch('http://localhost:8000', options);
-    }
-
-
-
+    /*render 5 fireIcons */
 
     const fireIconsArray = [];
 
@@ -84,14 +67,31 @@ export default function BlogPostForm () {
     }
 
     
+    /*submit function*/
+    function submitForm(event) {
+        const data = formState;
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+        fetch('http://localhost:8000', options);
+    }
+
+
+    /*blogPostForm jsx*/
+    
     return (
         <form className="postForm">
             <h1 className="postFormHeader">Create a blog post!</h1>        
                 <select
                     required
                     className="flaireSelect" 
+                    name="flaire"
                     value={formState.flaire}
-                    onChange={changeFlaire}>
+                    onChange={handleChange}>
                         <option disabled={true} value="">Choose a flaire</option>
                         <option value="JavaScript">JavaScript</option>
                         <option value="CSS">CSS</option>
@@ -101,7 +101,7 @@ export default function BlogPostForm () {
                 </select>
                 <input
                     value={formState.title}
-                    onChange={changeTitle}
+                    onChange={handleChange}
                     className="titleBox"
                     placeholder="title"
                     type="text"
@@ -110,12 +110,12 @@ export default function BlogPostForm () {
                 />
                 <textarea
                     value={formState.text}
-                    onChange={changeText}
+                    onChange={handleChange}
                     className="textBox"
                     placeholder="text"
                     type="text"
                     id="blogPost"
-                    name="blogPost"
+                    name="text"
                 />
                 <div className="fireIconContainer">
                     {fireIconsArray}
