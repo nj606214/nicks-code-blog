@@ -7,6 +7,7 @@ export default function BlogPostForm () {
     const [formState, setFormState] = React.useState({ flaire: '', title: '', text: '', fireLevel: ''});
     const [isHovered, setIsHovered] = React.useState();
     const [isLit, setIsLit] = React.useState();
+    const [formErrors, setFormErrors] = React.useState({});
 
     /*need to start implementing the validation states,
     /*will need an errorState object with a specified error for each field*/
@@ -66,18 +67,49 @@ export default function BlogPostForm () {
         )
     }
 
-    
+
+
     /*submit function*/
-    function submitForm(event) {
-        const data = formState;
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
+    function validate(values) {
+        const errors = {}
+        if(!values.flaire) {
+            errors.flaire = "Flaire is required!"
         }
-        fetch('http://localhost:8000', options);
+        if(!values.title) {
+            errors.title = "Title is required!"
+        }
+        if(!values.text) {
+            errors.text = "Text is required!"
+        }
+        if(!values.fireLevel) {
+            errors.fireLevel = "Select a fire level!"
+        }
+        return errors;
+
+    }
+
+    function submitForm(event) {
+        setFormErrors(validate(formState));
+        const errors = validate(formState);
+        //check to see if all values in the error object are blank
+        const isEmpty = !Object.values(errors).every(key => key === null || key === '');
+
+        if (isEmpty) {
+            event.preventDefault();
+            console.log(errors);
+        } else {
+
+        /*if no errors post to database*/
+            const data = formState;
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }
+            fetch('http://localhost:8000', options);
+        }
     }
 
 
@@ -99,6 +131,7 @@ export default function BlogPostForm () {
                         <option value="REACT">REACT</option>
                         <option value="BACKEND">BACKEND</option>
                 </select>
+                {formErrors.flaire && <p className="inputError inputErrorCenter">{ formErrors.flaire }</p> }
                 <input
                     value={formState.title}
                     onChange={handleChange}
@@ -108,6 +141,7 @@ export default function BlogPostForm () {
                     id="title"
                     name="title"
                 />
+               {formErrors.title && <p className="inputError">{ formErrors.title }</p> }
                 <textarea
                     value={formState.text}
                     onChange={handleChange}
@@ -117,11 +151,13 @@ export default function BlogPostForm () {
                     id="blogPost"
                     name="text"
                 />
+                {formErrors.text && <p className="inputError">{ formErrors.text }</p> }
                 <div className="fireIconContainer">
                     {fireIconsArray}
                 </div>  
+                {formErrors.fireLevel && <p className="inputError inputErrorCenter">{ formErrors.fireLevel }</p> }
                 <div className="blogPostFormButtonContainer">
-                    <button className="blogPostSubmit" type="submit" onClick={submitForm}>SUBMIT</button>
+                    <button className="blogPostSubmit" onClick={submitForm}>SUBMIT</button>
                     <button className="blogPostCancel" type="submit">CANCEL</button>
                 </div>
 

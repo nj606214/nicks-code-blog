@@ -155,6 +155,16 @@ nav a:hover {
   justify-self: center;
 }
 
+.inputError {
+  color: red;
+  margin-left: 10px;
+  margin-top: 0;
+}
+
+.inputErrorCenter {
+  justify-self: center;
+}
+
 .flaireSelect {
   font-family: "Montserrat", sans-serif;
   justify-self: center;
@@ -259,8 +269,8 @@ select:invalid {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-width: 450px;
   max-width: 750px;
-  min-width: 400px;
   margin-bottom: 10px;
   padding: 10px;
 

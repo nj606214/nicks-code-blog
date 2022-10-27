@@ -32,7 +32,7 @@ export default function Feed() {
     //returning a post element
 
     //need to use the .map method
-
+    //the && operator basically says, if blogPosts isnt empty, then run the map function and return that
    const feedPosts = blogPosts && blogPosts.map(blogPost => {
         return (
            <FeedPost 
