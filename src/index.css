@@ -312,3 +312,23 @@ select:invalid {
 .feedPostFireIcon {
   width: 20px;
 }
+
+.feedPostFireIcon1.feedPostFireIconIsLit {
+  background-color: #ffd000;
+}
+
+.feedPostFireIcon2.feedPostFireIconIsLit {
+  background-color: rgb(255, 136, 0);
+}
+
+.feedPostFireIcon3.feedPostFireIconIsLit {
+  background-color: hsl(22, 100%, 50%);
+}
+
+.feedPostFireIcon4.feedPostFireIconIsLit {
+  background-color: rgb(255, 51, 0);
+}
+
+.feedPostFireIcon5.feedPostFireIconIsLit {
+  background-color: rgb(187, 26, 4);
+}

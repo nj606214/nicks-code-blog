@@ -39,6 +39,7 @@ export default function Feed() {
                 title={blogPost.title}
                 text={blogPost.text}
                 flaire={blogPost.flaire}
+                fireLevel={blogPost.fireLevel}
             />
         )
     })
