@@ -1,28 +1,22 @@
 import React from 'react';
-import BlogPostForm from './components/BlogPostForm'
-import Nav from './components/Nav'
 import About from './components/About'
-import Feed from './components/Feed'
 import './index.css'
 import SignInPage from './components/SignInPage'
+import { Routes, Route } from 'react-router-dom';
+import HomePage from './components/HomePage'
+import Profile from './components/Profile'
 
 
 function App() {
   
   return (
     <div className="App">
-      <section id="main">
-        <Nav />
-        <div className="mainContent">
-          <About />
-          <BlogPostForm />
-          <section id="feed" className="feed">
-            <h2>Feed</h2>
-            <Feed />
-          </section>
-        </div>
-      </section> 
-      <SignInPage />    
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/signIn' element={<SignInPage />} /> 
+        <Route path='/profile' element={<Profile />} />
+      </Routes>
     </div>
   );
 }
