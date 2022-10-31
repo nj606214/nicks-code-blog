@@ -17,7 +17,7 @@ export default function Nav() {
                 <div className="navButtons" id={isExpanded ? "expanded" : ""}>       
                         <a className="firstButton" href="#feed">Blog Posts</a>
                         <a href="google.com">About</a>
-                        <a href="google.com">My Portfolio</a>
+                        <a href="google.com">My Profile</a>
                 </div>   
         </nav>
     )

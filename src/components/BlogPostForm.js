@@ -78,8 +78,14 @@ export default function BlogPostForm () {
         if(!values.title) {
             errors.title = "Title is required!"
         }
+        else if (values.title.length > 200) {
+            errors.title = "Title must be less than 200 characters"
+        }
         if(!values.text) {
             errors.text = "Text is required!"
+        }
+        else if(values.text.length > 500) {
+            errors.text = "Text must be less than 500 characters!"
         }
         if(!values.fireLevel) {
             errors.fireLevel = "Select a fire level!"

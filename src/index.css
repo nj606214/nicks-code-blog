@@ -265,6 +265,8 @@ select:invalid {
 }
 
 .feedPostContainer {
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -295,6 +297,8 @@ select:invalid {
 }
 
 .feedPostText {
+  overflow: hidden;
+  text-overflow: ellipsis;
   margin-left: 10px;
   margin-right: auto;
 }
@@ -331,4 +335,10 @@ select:invalid {
 
 .feedPostFireIcon5.feedPostFireIconIsLit {
   background-color: rgb(187, 26, 4);
+}
+
+/*SignInPage */
+.signUpPageToggleContainer {
+  display: flex;
+  flex-direction: row;
 }

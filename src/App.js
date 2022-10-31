@@ -4,6 +4,7 @@ import Nav from './components/Nav'
 import About from './components/About'
 import Feed from './components/Feed'
 import './index.css'
+import SignInPage from './components/SignInPage'
 
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
             <Feed />
           </section>
         </div>
-      </section>     
+      </section> 
+      <SignInPage />    
     </div>
   );
 }
