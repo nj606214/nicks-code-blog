@@ -105,7 +105,7 @@ export default function BlogPostForm () {
             console.log(errors);
         } else {
 
-        /*if no errors post to database*/
+        /*if no errors make post request to '/' endpoint and add to database*/
             const data = formState;
             const options = {
                 method: 'POST',

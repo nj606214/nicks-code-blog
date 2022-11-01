@@ -52,7 +52,7 @@ export default function FeedPost(props) {
             <p className="feedPostText">{props.text}</p>
             <div className="feedPostDetails">
                 <div  className="feedPostDate">
-                    <p>11/6/2022</p>
+                    <p>11/3/2022</p>
                 </div>
                 <div className="feedPostFireIconContainer">
                     {feedPostFireIcons}

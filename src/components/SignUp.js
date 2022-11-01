@@ -10,6 +10,12 @@ export default function SignUp() {
                     placeholder="Username"
                     className="signUpInput"
                 />
+                <input 
+                    name="email"
+                    type="text"
+                    placeholder="Email"
+                    className="signUpInput"
+                />
                  <input 
                     name="password"
                     type="text"
