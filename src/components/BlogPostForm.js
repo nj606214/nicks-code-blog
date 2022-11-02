@@ -84,8 +84,8 @@ export default function BlogPostForm () {
         if(!values.text) {
             errors.text = "Text is required!"
         }
-        else if(values.text.length > 500) {
-            errors.text = "Text must be less than 500 characters!"
+        else if(values.text.length > 1000) {
+            errors.text = "Text must be less than 1000 characters!"
         }
         if(!values.fireLevel) {
             errors.fireLevel = "Select a fire level!"
