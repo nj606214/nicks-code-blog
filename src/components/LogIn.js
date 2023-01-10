@@ -38,10 +38,23 @@ export default function LogIn() {
             event.preventDefault();
             console.log(errors);
         }
-        else
-
+        else {
+        const data = formState;
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+        fetch('http://localhost:8000/users/login', options);
+        console.log(data)
         navigate('/');
     }
+}
+
+        
+    
 
     return ( 
             <form className="logInForm">
@@ -62,7 +75,7 @@ export default function LogIn() {
                     onChange={handleChange}
                     placeholder="Password"
                     name="password"
-                    type="text"
+                    type="password"
                     id="password"
                     className="signInPageFormInput"
                 

@@ -17,6 +17,7 @@ const postSchema = mongoose.Schema({
         type: Number,
         required: [true, 'Please select a fire level']
     }
+    /*add user field for when we have jwt figured out*/
 }, 
     {
     timestamps: true,

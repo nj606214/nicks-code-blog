@@ -44,9 +44,20 @@ export default function SignUp() {
         if (isEmpty) {
             event.preventDefault();
             console.log(errors);
-        } else
-
-        navigate('/');
+        }        
+        else {
+            const data = formState;
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            }
+            fetch('http://localhost:8000/users', options);
+            console.log(data)
+            navigate('/');
+        }
     }
     
     return(
@@ -72,7 +83,7 @@ export default function SignUp() {
                 {formErrors.email && <p className="inputError inputErrorCenter">{ formErrors.email }</p> }
                  <input 
                     name="password"
-                    type="text"
+                    type="password"
                     placeholder="Password"
                     className="signInPageFormInput"
                     value={formState.password}
@@ -81,7 +92,7 @@ export default function SignUp() {
                 {formErrors.password && <p className="inputError inputErrorCenter">{ formErrors.password }</p> }
                  <input 
                     name="confirmPassword"
-                    type="text"
+                    type="password"
                     placeholder="Confirm password"
                     className="signInPageFormInput"
                     value={formState.confirmPassword}

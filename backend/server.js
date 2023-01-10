@@ -10,9 +10,12 @@ const {errorHandler} = require('./middleware/errorMiddleware')
 connectDB()
 
 
+
 //initialize the app as express object
 const app = express()
 
+//i believe this allows cross origin resource sharing between the server/database
+//and the root of our website
 app.use(cors({
     origin: "http://localhost:3000"
 }))
@@ -24,6 +27,7 @@ app.use(express.urlencoded({extended: false})) //?//
 
 //not sure what this does, i think its telling the route it should look for//
 app.use('/', require('./routes/postRoutes'))
+app.use('/users', require('./routes/userRoutes'))
 
 //make sure the app utulizes the error handler functions//
 app.use(errorHandler)

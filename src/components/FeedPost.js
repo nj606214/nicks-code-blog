@@ -23,7 +23,6 @@ export default function FeedPost(props) {
         }
         
         feedPostFireIconClassNames.push(`feedPostFireIcon${i+1}`)
-        console.log(feedPostFireIconClassNames)
         return feedPostFireIconClassNames.join(' ');
     }
 
@@ -64,3 +63,5 @@ export default function FeedPost(props) {
         </div>
     )
 }
+
+

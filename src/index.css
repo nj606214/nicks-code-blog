@@ -372,6 +372,7 @@ select:invalid {
 .signInPageFormTitle {
   color: white;
   margin-bottom: 22px;
+  font-weight: bold;
 }
 
 .signInPageFormButton {

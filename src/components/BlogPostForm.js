@@ -3,6 +3,7 @@ import fireIconImage from '../images/fireIcon.png'
 import FireIcon from './FireIcon'
 
 
+
 export default function BlogPostForm () {
     const [formState, setFormState] = React.useState({ flaire: '', title: '', text: '', fireLevel: ''});
     const [isHovered, setIsHovered] = React.useState();
