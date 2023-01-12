@@ -12,10 +12,10 @@ export default function Nav() {
 
     return (
         <nav className="navBar">
-            <a href="/" className="navMainLogo">Nick J's Code Blog!</a>
+            <a href="/home" className="navMainLogo">Nick J's Code Blog!</a>
             <img src={menu} alt="menu icon" className="menuIcon" onClick={toggleNav}></img>  
                 <div className="navButtons" id={isExpanded ? "expanded" : ""}>       
-                        <a className="firstButton" href="/#feed">Blog Posts</a>
+                        <a className="firstButton" href="/home#feed">Blog Posts</a>
                         <a href="/about">About</a>
                         <a href="/profile">My Profile</a>
                 </div>   

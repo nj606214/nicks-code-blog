@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 export default function LogIn() {
     /*functions for log in procedure*/
 
+    
+    /*form inputs and error states*/
     const [formState, setFormState] = React.useState({username: '', password: ''})
     const [formErrors, setFormErrors] = React.useState({});
 
@@ -30,7 +32,7 @@ export default function LogIn() {
 
     function submitForm(event) {
         setFormErrors(validate(formState));
-        const errors=validate(formState);
+        const errors=validate(formState)
 
         const isEmpty = !Object.values(errors).every(key => key === null || key === '');
 
@@ -49,7 +51,7 @@ export default function LogIn() {
         }
         fetch('http://localhost:8000/users/login', options);
         console.log(data)
-        navigate('/');
+        navigate('/home');
     }
 }
 
